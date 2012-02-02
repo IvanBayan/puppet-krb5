@@ -71,6 +71,6 @@ class krb5 (
 			content => 'puppet:///modules/krb5/krb5.conf',
 		}
 	} else {
-#		include krb5::config
+		#include krb5::config
 	} 
 }
