@@ -2,6 +2,7 @@ define krb5::realm(
 	$config_file = $krb5::config_file,
 	$default_domain='',
 	$kpasswd_server='',
+	$kpasswd_protocol='',
 	$admin_server='',
 	$kdc,$v4_name_convert={}
 ) {

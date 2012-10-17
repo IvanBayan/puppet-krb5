@@ -10,7 +10,15 @@ class krb5::config (
 								'krb4_convert_524' => 'false',
 								'krb4_use_as_req'  => 'false'
 							},
-	$config_file = $krb5::config_file	
+        $krb5kinit = {
+            'renewable'   => 'true',
+            'forwardable' => 'true',
+        },
+	$config_file = $krb5::config_file,
+        $krb5udppreferencelimit = undef,
+        $krb5dnslookuprealm = undef,
+        $krb5dnslookupkdc = undef,
+        $krb5allowweakcrypto = undef
 ) {
 	if $krb5::config_file_static != undef {
 		fail( '$krb5::config_file_static defined, you can not use dynamic config generation if use static config' )
