@@ -1,10 +1,11 @@
 This is a puppet module for managing krb5 libs and krb5.conf
 
-I have only Debian 6.0, so if you use another os, you must add it in params.pp
+This module now support Debian 6 and CentOS 6
 Module depend on 'ripienaar/concat' module, when i have been writing and testing module i use last version from http://github.com/ripienaar/puppet-concat
 
 As a base i use next module  http://agileinf.web.cern.ch/agileinf/gitweb?p=punch-modules.git;a=tree;f=kerberos;hb=HEAD
 Also as a template i use saz/ntp module. 
+Thank pinkunicorn for added support of CentOS and additional configuration options.
 
 Sample usage:
 
@@ -46,7 +47,7 @@ class{ 'krb5::config':
                           'krb4_convert_524' => 'false',
                           'krb4_use_as_req'  => 'false'
                          }
-	
+...	
 }
 
 You can configure thru 'krb5::realm' class, your realms. For supported values, look at config.pp

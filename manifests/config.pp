@@ -15,14 +15,16 @@ class krb5::config (
             'forwardable' => 'true',
         },
 	$config_file = $krb5::config_file,
-        $krb5udppreferencelimit = undef,
-        $krb5dnslookuprealm = undef,
-        $krb5dnslookupkdc = undef,
-        $krb5allowweakcrypto = undef
+  $krb5udppreferencelimit = undef,
+  $krb5dnslookuprealm = undef,
+  $krb5dnslookupkdc = undef,
+  $krb5allowweakcrypto = undef
 ) {
+  
 	if $krb5::config_file_static != undef {
 		fail( '$krb5::config_file_static defined, you can not use dynamic config generation if use static config' )
 	}
+	
 	include concat::setup
 	Class[ 'krb5::config' ] -> Class[ 'krb5' ]
 	
