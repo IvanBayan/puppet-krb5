@@ -11,16 +11,16 @@ proxiable = <%= krb5proxiable %>
 <% if krb5enctype.length > 0 -%>
 default_tkt_enctypes = <%= krb5enctype.join(' ') %>
 <% end -%>
-<% if krb5udppreferencelimit.length > 0 -%>
+<% if @krb5udppreferencelimit and @krb5udppreferencelimit.length > 0 -%>
 udp_preference_limit = <%= krb5udppreferencelimit %>
 <% end -%>
-<% if krb5dnslookuprealm -%>
+<% if @krb5dnslookuprealm -%>
 dns_lookup_realm = <%= krb5dnslookuprealm %>
 <% end -%>
-<% if krb5dnslookupkdc -%>
+<% if @krb5dnslookupkdc -%>
 dns_lookup_kdc = <%= krb5dnslookupkdc %>
 <% end -%>
-<% if krb5allowweakcrypto -%>
+<% if @krb5allowweakcrypto -%>
 allow_weak_crypto = <%= krb5allowweakcrypto %>
 <% end -%>
 
