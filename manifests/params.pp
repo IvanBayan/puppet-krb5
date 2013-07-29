@@ -1,3 +1,5 @@
+#params.pp
+
 class krb5::params {
   case $::operatingsystem {
     /(Debian)/: {
@@ -14,6 +16,11 @@ class krb5::params {
                      'krb5-auth-dialog', 
                      'pam_krb5' ]
         $config_file = '/etc/krb5.conf'
+    }
+    /(Ubuntu)/: {
+	$package = [ 'krb5-user',
+		     'libpam-krb5' ]
+	$config_file = '/etc/krb5.conf'
     }
     default: {
       fail("Unsupported platform: ${::operatingsystem} or version ${::lsbmajdistrelease}, look at manifests/params.pp")
