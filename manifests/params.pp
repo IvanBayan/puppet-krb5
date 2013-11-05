@@ -13,7 +13,6 @@ class krb5::params {
         # http://projects.puppetlabs.com/issues/15159
         $package = [ 'krb5-libs', 
                      'krb5-workstation',
-                     'krb5-auth-dialog', 
                      'pam_krb5' ]
         $config_file = '/etc/krb5.conf'
     }

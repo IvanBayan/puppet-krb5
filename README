@@ -1,11 +1,11 @@
 This is a puppet module for managing krb5 libs and krb5.conf
 
-This module now support Debian 6 and CentOS 6
+This module now support Debian 6, CentOS and Ubuntu
 Module depend on 'ripienaar/concat' module, when i have been writing and testing module i use last version from http://github.com/ripienaar/puppet-concat
 
 As a base i use next module  http://agileinf.web.cern.ch/agileinf/gitweb?p=punch-modules.git;a=tree;f=kerberos;hb=HEAD
 Also as a template i use saz/ntp module. 
-Thank pinkunicorn for added support of CentOS and additional configuration options.
+Thanks to all contributors.
 
 Sample usage:
 
