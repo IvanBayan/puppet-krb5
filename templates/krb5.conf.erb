@@ -1,41 +1,47 @@
-# Managed by Puppet <%= puppetversion %>
+# Managed by Puppet
+
+[logging]
+default = FILE:/var/log/krb5libs.log
+kdc = FILE:/var/log/krb5kdc.log
+admin_server = FILE:/var/log/kadmind.log
 
 [libdefaults]
-<% if krb5default.length > 0 -%>
-default_realm = <%= krb5default %>
+<% if @krb5default.length > 0 -%>
+default_realm = <%= @krb5default %>
 <% end -%>
-ticket_lifetime = <%= krb5ticket_lifetime %>
-renew_lifetime = <%= krb5renew_lifetime %>
-forwardable = <%= krb5forwardable %> 
-proxiable = <%= krb5proxiable %>
-<% if krb5enctype.length > 0 -%>
-default_tkt_enctypes = <%= krb5enctype.join(' ') %>
+ticket_lifetime = <%= @krb5ticket_lifetime %>
+renew_lifetime = <%= @krb5renew_lifetime %>
+forwardable = <%= @krb5forwardable %>
+proxiable = <%= @krb5proxiable %>
+<% if @krb5enctype.length > 0 -%>
+default_tkt_enctypes = <%= @krb5enctype.join(' ') %>
 <% end -%>
 <% if @krb5udppreferencelimit and @krb5udppreferencelimit.length > 0 -%>
-udp_preference_limit = <%= krb5udppreferencelimit %>
+udp_preference_limit = <%= @krb5udppreferencelimit %>
 <% end -%>
 <% if @krb5dnslookuprealm -%>
-dns_lookup_realm = <%= krb5dnslookuprealm %>
+dns_lookup_realm = <%= @krb5dnslookuprealm %>
 <% end -%>
 <% if @krb5dnslookupkdc -%>
-dns_lookup_kdc = <%= krb5dnslookupkdc %>
+dns_lookup_kdc = <%= @krb5dnslookupkdc %>
 <% end -%>
 <% if @krb5allowweakcrypto -%>
-allow_weak_crypto = <%= krb5allowweakcrypto %>
+allow_weak_crypto = <%= @krb5allowweakcrypto %>
 <% end -%>
 
 [appdefaults]
-<% if krb5pam.length > 0 -%>
+<% if @krb5pam.length > 0 -%>
 pam = {
-<% krb5pam.each do | key,val | -%>
+<% @krb5pam.sort_by {|key, value| key}.each do | key,val |  -%>
          <%= key %> = <%= val %>
 <% end -%>
 }
 <% end -%>
-<% if krb5kinit.length > 0 -%>
+<% if @krb5kinit.length > 0 -%>
 kinit = {
-<% krb5kinit.each do | key,val | -%>
+<% @krb5kinit.each do | key,val | -%>
          <%= key %> = <%= val %>
 <% end -%>
 }
 <% end -%>
+
