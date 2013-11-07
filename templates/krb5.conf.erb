@@ -27,14 +27,14 @@ allow_weak_crypto = <%= krb5allowweakcrypto %>
 [appdefaults]
 <% if krb5pam.length > 0 -%>
 pam = {
-<% krb5pam.each do | key,val | -%>
+<% krb5pam.each_line do | key,val | -%>
          <%= key %> = <%= val %>
 <% end -%>
 }
 <% end -%>
 <% if krb5kinit.length > 0 -%>
 kinit = {
-<% krb5kinit.each do | key,val | -%>
+<% krb5kinit.each_line do | key,val | -%>
          <%= key %> = <%= val %>
 <% end -%>
 }
