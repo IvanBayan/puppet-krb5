@@ -1,25 +1,25 @@
-# Start of puppet output for <%= realm %> 
-<%= realm %>  = {
-<% if default_domain.length > 0 -%>
-    default_domain = <%= default_domain %>
+# Start of puppet output for <%= @realm %> 
+<%= @realm %>  = {
+<% if @default_domain.length > 0 -%>
+    default_domain = <%= @default_domain %>
 <% end -%>
-<% if kpasswd_server.length > 0 -%>
-    kpasswd_server = <%= kpasswd_server %>
+<% if @kpasswd_server.length > 0 -%>
+    kpasswd_server = <%= @kpasswd_server %>
 <% end -%>
-<% if kpasswd_protocol.length > 0 -%>
-    kpasswd_protocol = <%= kpasswd_protocol %>
+<% if @kpasswd_protocol.length > 0 -%>
+    kpasswd_protocol = <%= @kpasswd_protocol %>
 <% end -%>
-<% if admin_server.length > 0 -%>
-    admin_server = <%= admin_server %>
+<% if @admin_server.length > 0 -%>
+    admin_server = <%= @admin_server %>
 <% end -%>
-<% if kdc.length > 0 -%>
-<%    kdc.each do |s| -%>
+<% if @kdc.length > 0 -%>
+<%    @kdc.each do |s| -%>
     kdc = <%= s %>
 <%    end -%>
 <% end -%>
-<% if  v4_name_convert.length > 0 -%>
+<% if  @v4_name_convert.length > 0 -%>
     v4_name_convert = {
-<%  v4_name_convert.each do |a,b| -%>
+<%  @v4_name_convert.each do |a,b| -%>
         <%= a %> = {
 <%   b.each do |i,j| -%>
         <%= i %> = <%= j %>
@@ -29,3 +29,4 @@
 }
 <% end -%>
 }
+

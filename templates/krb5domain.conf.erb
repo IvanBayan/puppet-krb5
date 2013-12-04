@@ -1,6 +1,7 @@
-<% if default_domain.length > 0 -%>
-.<%= default_domain %> = <%= realm %>
-<%= default_domain %> = <%= realm %>
+<% if @default_domain.length > 0 -%>
+.<%= @default_domain %> = <%= @realm %>
+<%= @default_domain %> = <%= @realm %>
 <% else -%>
-; No default domain for <%= realm %> specified.
+; No default domain for <%= @realm %> specified.
 <% end -%>
+
