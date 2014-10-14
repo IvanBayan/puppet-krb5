@@ -25,7 +25,6 @@ class krb5::config (
 		fail( '$krb5::config_file_static defined, you can not use dynamic config generation if use static config' )
 	}
 	
-	include concat::setup
 	Class[ 'krb5::config' ] -> Class[ 'krb5' ]
 	
 	concat { $config_file:
