@@ -9,6 +9,9 @@ admin_server = FILE:/var/log/kadmind.log
 <% if @krb5default.length > 0 -%>
 default_realm = <%= @krb5default %>
 <% end -%>
+<% if @krb5keytabname.length > 0 -%>
+default_keytab_name = <%= @krb5keytabname %>
+<% end -%>
 ticket_lifetime = <%= @krb5ticket_lifetime %>
 renew_lifetime = <%= @krb5renew_lifetime %>
 forwardable = <%= @krb5forwardable %>

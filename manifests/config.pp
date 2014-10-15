@@ -1,5 +1,6 @@
 class krb5::config (
 	$krb5default			= '',
+	$krb5keytabname			= '',
 	$krb5ticket_lifetime	= '25h',
 	$krb5renew_lifetime		= '120h',
 	$krb5forwardable		= 'true',
